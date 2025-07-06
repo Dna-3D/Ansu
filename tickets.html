@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tickets - Ansugist</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">
+                <i class="fas fa-graduation-cap me-2"></i>Ansugist
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="blog.html">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="tickets.html">Tickets</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="ads.html">Advertisements</a>
+                    </li>
+                    <li class="nav-item">
+                        <button class="btn btn-outline-light btn-sm ms-2" id="darkModeToggle">
+                            <i class="fas fa-moon"></i>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Tickets Header -->
+    <section class="bg-light py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h1 class="display-4 fw-bold text-primary mb-4">Event Tickets</h1>
+                    <p class="lead">Purchase tickets for upcoming school events, workshops, and activities. Contact us directly via WhatsApp for instant booking.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tickets Content -->
+    <section class="py-5">
+        <div class="container">
+            <div id="ticketsContainer" class="row g-4">
+                <!-- Ticket cards will be dynamically loaded -->
+            </div>
+            
+            <!-- Empty State -->
+            <div id="emptyState" class="text-center py-5 d-none">
+                <i class="fas fa-ticket-alt fa-3x text-muted mb-3"></i>
+                <h4 class="text-muted">No tickets available</h4>
+                <p class="text-muted">Check back later for upcoming events or contact the administrator.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h5><i class="fas fa-graduation-cap me-2"></i>Ansugist</h5>
+                    <p class="mb-3">Your trusted source for school news and educational content. Stay connected with our academic community.</p>
+                    <div class="d-flex gap-3">
+                        <a href="#" class="text-white-50 fs-5"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-white-50 fs-5"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white-50 fs-5"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white-50 fs-5"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h6 class="text-uppercase fw-bold mb-3">Quick Links</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html" class="text-white-50 text-decoration-none">Home</a></li>
+                        <li><a href="blog.html" class="text-white-50 text-decoration-none">Blog</a></li>
+                        <li><a href="tickets.html" class="text-white-50 text-decoration-none">Tickets</a></li>
+                        <li><a href="ads.html" class="text-white-50 text-decoration-none">Ads</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h6 class="text-uppercase fw-bold mb-3">Contact Info</h6>
+                    <p class="mb-2"><i class="fas fa-envelope me-2"></i>info@ansugist.edu</p>
+                    <p class="mb-2"><i class="fas fa-phone me-2"></i>+234 800 000 0000</p>
+                    <p class="mb-0"><i class="fas fa-map-marker-alt me-2"></i>Lagos, Nigeria</p>
+                </div>
+                <div class="col-lg-3 col-md-12 mb-4">
+                    <h6 class="text-uppercase fw-bold mb-3">Admin</h6>
+                    <a href="admin.html" class="btn btn-outline-light btn-sm">
+                        <i class="fas fa-cog me-1"></i>Admin Panel
+                    </a>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="mb-0">&copy; 2025 Ansugist. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="mb-0">Created by <a href="https://darc.com.ng" target="_blank" class="text-white fw-bold text-decoration-none">Darc Designs</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Firebase SDK -->
+    <script type="module">
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js';
+        import { getFirestore, collection, addDoc, getDocs, doc, updateDoc, deleteDoc, getDoc } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js';
+        
+        // Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyD7MD_4GF3e3-V9IMyuti0rusvb32QluF4",
+            authDomain: "ansugistmedia.firebaseapp.com",
+            projectId: "ansugistmedia",
+            storageBucket: "ansugistmedia.firebasestorage.app",
+            messagingSenderId: "119586245604",
+            appId: "1:119586245604:web:f65d5d13d395a904c415f1"
+        };
+        
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+        
+        // Make available globally
+        window.db = db;
+        window.firebaseModules = { collection, addDoc, getDocs, doc, updateDoc, deleteDoc, getDoc };
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
